@@ -3,14 +3,12 @@ const speakerRouter = Router();
 const { Speaker } = require("../models.js");
 
 speakerRouter.get("/", async (req, res) => {
-  // try {
-  //   const speakers = await Speaker.findAll();
-  //   res.json({ speakers });
-  // } catch (e) {
-  //   res.json({ error: e.message });
-  // }  
-  const speakers = await Speaker.findAll();
-  res.json({ speakers });
+  try {
+    const speakers = await Speaker.findAll();
+    res.json(speakers);
+  } catch (e) {
+    res.json({ error: e.message });
+  }
 });
 
 speakerRouter.get("/:id", async (req, res) => {
